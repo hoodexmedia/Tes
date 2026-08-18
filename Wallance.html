@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wallance Hotel - Experience luxury, comfort, and world-class hospitality in Awka North, Nigeria.">
+  <title>Wallance Hotel</title>
+
+  <style>
+  :root {
+  --primary: #0f4c75;
+  --accent: #3282b8;
+  --light: #f8f9fa;
+  --dark: #1b262c;
+  --text: #333;
+}
+
+/* RESET */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: var(--accent);
+}
+
+.btn-nav {
+  padding: 8px 16px;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 24px;
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ACCESSIBILITY */
+.btn:focus,
+.navbar nav a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* HERO */
+.hero {
+    background: url("https://images.unsplash.com/photo-1501117716987-c8e1ecb2101d?q=80&w=1200") center center/cover no-repeat;
+    min-height: 60vh;
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #000;
+}
+
+.hero-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin-bottom: 12px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* BOOKING */
+.booking {
+    margin-top: 30px;
+    position: relative;
+}
+
+.booking-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+}
+
+.booking-item {
+  flex: 1;
+  min-width: 160px;
+}
+
+.booking-item label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.booking-item input,
+.booking-item select,
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font: inherit;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--primary);
+}
+
+.bg-light {
+  background: var(--light);
+}
+
+/* ROOMS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h4 {
+  margin-bottom: 8px;
+  color: var(--dark);
+}
+
+.price {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* AMENITIES */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.amenity {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ABOUT */
+.about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--dark);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .navbar .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar nav a {
+    margin: 8px;
+  }
+
+  .about,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 70vh;
+    padding: 80px 20px;
+  }
+
+  .hero-content h2 {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .booking-box {
+    flex-direction: column;
+  }
+}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="logo">Wallance<span>Hotel</span></h1>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#booking" class="btn btn-nav">Book Now</a>
+        <a href="booking_status.php">
+    Check My Booking
+</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Experience Comfort and Luxury </h2>
+      <p>Discover comfort, elegance, and warm Nigerian hospitality at Wallance Hotel.</p>
+      <a href="#booking" class="btn btn-primary">Check Availability</a>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="booking">
+    <div class="container">
+      <form action="booking.php" method="POST" class="booking-box">
+
+    <div class="booking-item">
+
+        <label for="checkin">
+            Check-in
+        </label>
+
+        <input
+            type="date"
+            id="checkin"
+            name="check_in"
+            required
+        >
+
+    </div>
+
+
+    <div class="booking-item">
+
+        <label for="checkout">
+            Check-out
+        </label>
+
+        <input
+            type="date"
+            id="checkout"
+            name="check_out"
+            required
+        >
+
+    </div>
+
+
+    <div class="booking-item">
+
+        <label for="room">
+            Room
+        </label>
+
+        <select
+            id="room"
+            name="room_id"
+            required
+        >
+
+            <option value="">
+                Select your dates first
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="booking-item">
+
+        <label for="guests">
+            Guests
+        </label>
+
+        <select
+            id="guests"
+            name="guests"
+            required
+        >
+
+            <option value="1">1 Guest</option>
+            <option value="2">2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="booking-item">
+
+        <label for="guest_name">
+            Full Name
+        </label>
+
+        <input
+            type="text"
+            id="guest_name"
+            name="guest_name"
+            required
+        >
+
+    </div>
+
+
+    <div class="booking-item">
+
+        <label for="email">
+            Email
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            required
+        >
+
+    </div>
+
+
+    <div class="booking-item">
+
+        <label for="phone">
+            Phone
+        </label>
+
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+        >
+
+    </div>
+
+
+    <div class="booking-item">
+
+        <button
+            type="submit"
+            class="btn btn-primary"
+        >
+            Book Now
+        </button>
+
+    </div>
+
+</form>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section id="rooms" class="section">
+    <div class="container">
+
+      <h3 class="section-title">Our Rooms & Suites</h3>
+
+      <div class="grid">
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800"
+               alt="Deluxe Room"
+               loading="lazy">
+
+          <div class="card-body">
+            <h4>Deluxe Room</h4>
+            <p>King-size bed, sea view, 35m². Perfect for couples.</p>
+            <span class="price">$30 / night</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800"
+               alt="Executive Suite"
+               loading="lazy">
+
+          <div class="card-body">
+            <h4>Executive Suite</h4>
+            <p>Separate living area, private balcony, complimentary breakfast.</p>
+            <span class="price">$52 / night</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1582719478250-247e1b5758b3?q=80&w=800"
+               alt="Standard Room"
+               loading="lazy">
+
+          <div class="card-body">
+            <h4>Standard Room</h4>
+            <p>Two queen beds, spacious layout, and kid-friendly amenities.</p>
+            <span class="price">$23 / night</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section id="amenities" class="section bg-light">
+    <div class="container">
+
+      <h3 class="section-title">Hotel Amenities</h3>
+
+      <div class="amenities-grid">
+        <div class="amenity">🏊 Infinity Pool</div>
+        <div class="amenity">🍽️ Restaurant & Bar</div>
+        <div class="amenity">💪 Fitness Center</div>
+        <div class="amenity">🧖 Spa & Wellness</div>
+        <div class="amenity">📶 Free Wi-Fi</div>
+        <div class="amenity">🚗 Free Parking</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container about">
+
+      <div class="about-text">
+        <h3 class="section-title">About Wallance Hotel</h3>
+
+        <p>
+          Located in the heart of Awka North, Wallance Hotel blends modern comfort
+          with warm Nigerian hospitality. We are committed to making every stay
+          memorable through personalized service, luxurious accommodation,
+          exceptional dining, and outstanding guest experiences.
+        </p>
+      </div>
+
+      <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=800"
+           alt="Hotel Lobby"
+           loading="lazy">
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section bg-light">
+
+    <div class="container">
+
+      <h3 class="section-title">Contact Us</h3>
+
+      <div class="contact-grid">
+
+        <div>
+          <p><strong>Address:</strong> Irunnebo Avenue, Mgbakwu, Awka North, Anambra State</p>
+          <p><strong>Phone:</strong> +234 803 812 7702</p>
+          <p><strong>Email:</strong> info@wallancehotel.com</p>
+        </div>
+
+        <form class="contact-form" action="contact.php" method="POST">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required>
+            <input type="text"
+       name="subject"
+       placeholder="Subject">
+
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="Your Message"
+            required></textarea>
+            
+          <button type="submit" class="btn btn-primary">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Wallance Hotel. All Rights Reserved. | Designed with care.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
